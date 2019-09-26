@@ -39,7 +39,7 @@ import InternalModel, {
   extractRecordDataFromRecord,
   extractRecordDatasFromRecords,
 } from './model/internal-model';
-import { RecordData as RecordDataDefault, Relationship } from '@ember-data/record-data/-private';
+import { Relationship } from '@ember-data/record-data/-private';
 import edBackburner from './backburner';
 import {
   IDENTIFIERS,
