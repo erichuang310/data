@@ -1,3 +1,3 @@
 /**
-  @module @ember-data/record-data
+  @module @ember-data/debug
 */

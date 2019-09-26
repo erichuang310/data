@@ -32,7 +32,8 @@ import { StableRecordIdentifier } from '../../ts-interfaces/identifier';
 import { internalModelFactoryFor, setRecordIdentifier } from '../store/internal-model-factory';
 import CoreStore from '../core-store';
 import coerceId from '../coerce-id';
-import { RecordData as DefaultRecordData, recordDataFor, relationshipStateFor } from '@ember-data/record-data/-private';
+import recordDataFor from '../record-data-for';
+import { RecordData as DefaultRecordData, relationshipStateFor } from '@ember-data/record-data/-private';
 
 /**
   @module @ember-data/store
