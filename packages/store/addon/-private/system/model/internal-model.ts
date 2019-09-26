@@ -16,7 +16,6 @@ import Store from '../ds-model-store';
 import { errorsHashToArray } from '../errors-utils';
 
 import { RecordReference, BelongsToReference, HasManyReference } from '../references';
-import { default as recordDataFor, relationshipStateFor } from '../record-data-for';
 import RecordData from '../../ts-interfaces/record-data';
 import { JsonApiResource, JsonApiValidationError } from '../../ts-interfaces/record-data-json-api';
 import { Record } from '../../ts-interfaces/record';
@@ -33,7 +32,7 @@ import { StableRecordIdentifier } from '../../ts-interfaces/identifier';
 import { internalModelFactoryFor, setRecordIdentifier } from '../store/internal-model-factory';
 import CoreStore from '../core-store';
 import coerceId from '../coerce-id';
-import { RecordData as DefaultRecordData } from '@ember-data/record-data/-private';
+import { RecordData as DefaultRecordData, recordDataFor, relationshipStateFor } from '@ember-data/record-data/-private';
 
 /**
   @module @ember-data/store

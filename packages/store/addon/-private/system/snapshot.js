@@ -5,7 +5,7 @@ import { inspect } from '@ember/debug';
 import EmberError from '@ember/error';
 import { get } from '@ember/object';
 import { assign } from '@ember/polyfills';
-import recordDataFor, { relationshipStateFor } from './record-data-for';
+import { recordDataFor, relationshipStateFor } from '@ember-data/record-data/-private';
 import { CUSTOM_MODEL_CLASS } from '@ember-data/canary-features';
 
 /**

@@ -17,13 +17,9 @@ export {
   RecordArrayManager,
   RootState,
   SnapshotRecordArray,
-  recordDataFor,
-  relationshipStateFor,
-  relationshipsFor,
   normalizeModelName,
   coerceId,
 } from '@ember-data/store/-private';
 export { RecordData, Relationship } from '@ember-data/record-data/-private';
 
-// Should be a different Repo ?
 export { default as DebugAdapter } from './system/debug/debug-adapter';

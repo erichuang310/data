@@ -10,7 +10,7 @@ import Model from '@ember-data/model';
 import testInDebug from 'dummy/tests/helpers/test-in-debug';
 import DS from 'ember-data';
 import { RecordData } from '@ember-data/record-data/-private';
-import { recordDataFor, relationshipsFor, relationshipStateFor } from '@ember-data/store/-private';
+import { recordDataFor, relationshipsFor, relationshipStateFor } from '@ember-data/record-data/-private';
 import { identifierCacheFor } from '@ember-data/store/-private';
 import { IDENTIFIERS } from '@ember-data/canary-features';
 import { setupContext, teardownContext } from '@ember/test-helpers';
