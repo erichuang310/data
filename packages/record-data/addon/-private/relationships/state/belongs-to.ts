@@ -2,10 +2,10 @@ import { assert, inspect } from '@ember/debug';
 import { assertPolymorphicType } from '@ember-data/store/-debug';
 import { isNone } from '@ember/utils';
 import Relationship from './relationship';
-import { RelationshipRecordData } from '../../../ts-interfaces/relationship-record-data';
-import { JsonApiBelongsToRelationship } from '../../../ts-interfaces/record-data-json-api';
-import { RelationshipSchema } from '../../../ts-interfaces/record-data-schemas';
-import { ExistingResourceIdentifierObject } from '../../../ts-interfaces/ember-data-json-api';
+import { RelationshipRecordData } from '../../ts-interfaces/relationship-record-data';
+import { JsonApiBelongsToRelationship } from '../../ts-interfaces/record-data-json-api';
+import { RelationshipSchema } from '../../ts-interfaces/record-data-schemas';
+import { ExistingResourceIdentifierObject } from '../../ts-interfaces/ember-data-json-api';
 
 /**
   @module @ember-data/store

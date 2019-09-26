@@ -9,7 +9,7 @@
   See http://jsonapi.org/format/#document-links for more information.
 
   @method _normalizeLink
-  @private
+  @internal
   @param {String} link
   @return {Object|null}
 */

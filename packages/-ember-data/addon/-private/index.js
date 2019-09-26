@@ -11,10 +11,8 @@ export {
   InternalModel,
   ManyArray,
   PromiseArray,
-  Relationship,
   PromiseManyArray,
   PromiseObject,
-  RecordData,
   RecordArray,
   RecordArrayManager,
   RootState,
@@ -25,6 +23,7 @@ export {
   normalizeModelName,
   coerceId,
 } from '@ember-data/store/-private';
+export { RecordData, Relationship } from '@ember-data/record-data/-private';
 
 // Should be a different Repo ?
 export { default as DebugAdapter } from './system/debug/debug-adapter';

@@ -833,6 +833,17 @@
     "@ember/edition-utils" "^1.1.1"
     ember-cli-blueprint-test-helpers "^0.19.1"
 
+"@ember-data/adapter@3.14.0-alpha.4":
+  version "3.14.0-alpha.4"
+  resolved "https://registry.npmjs.org/@ember-data/adapter/-/adapter-3.14.0-alpha.4.tgz#64d13e9af86a30104b7b014018a92591a576888f"
+  integrity sha512-FEBtF4jEu2pA4VoAmCkPeP/FtCLQ0JzvQhWcd1V2faF1a2YXCJ24bRQ9aZ3O89EPNnej4TaAjHUMZnjq6XtQ9g==
+  dependencies:
+    "@ember-data/-build-infra" "3.14.0-alpha.4"
+    "@ember/edition-utils" "^1.1.1"
+    ember-cli-babel "^7.11.0"
+    ember-cli-test-info "^1.0.0"
+    ember-cli-typescript "^3.0.0"
+
 "@ember-data/canary-features@3.14.0-alpha.4":
   version "3.14.0-alpha.4"
   resolved "https://registry.npmjs.org/@ember-data/canary-features/-/canary-features-3.14.0-alpha.4.tgz#eece9ede35ce90fc345069e44252807f8ebc826a"
@@ -844,6 +855,20 @@
   version "0.0.4"
   resolved "https://registry.npmjs.org/@ember-data/rfc395-data/-/rfc395-data-0.0.4.tgz#ecb86efdf5d7733a76ff14ea651a1b0ed1f8a843"
   integrity sha512-tGRdvgC9/QMQSuSuJV45xoyhI0Pzjm7A9o/MVVA3HakXIImJbbzx/k/6dO9CUEQXIyS2y0fW6C1XaYOG7rY0FQ==
+
+"@ember-data/store@3.14.0-alpha.4":
+  version "3.14.0-alpha.4"
+  resolved "https://registry.npmjs.org/@ember-data/store/-/store-3.14.0-alpha.4.tgz#cf4d9c2ecc839bf08862123e715cc65df106106e"
+  integrity sha512-LDdfthRmFmgWQnwIGLXfXqHBRVeZFyFAaI94dZ/2OaXaRa8ML3I54S/5LTFtAQ7E6/mzsAXgW2NXJo5hZmABsA==
+  dependencies:
+    "@ember-data/-build-infra" "3.14.0-alpha.4"
+    "@ember-data/adapter" "3.14.0-alpha.4"
+    "@ember-data/canary-features" "3.14.0-alpha.4"
+    "@ember/ordered-set" "^2.0.3"
+    ember-cli-babel "^7.11.0"
+    ember-cli-path-utils "^1.0.0"
+    ember-cli-typescript "^3.0.0"
+    heimdalljs "^0.3.0"
 
 "@ember/edition-utils@^1.1.1":
   version "1.1.1"

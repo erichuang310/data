@@ -4,23 +4,20 @@ import { default as EmberArray, A } from '@ember/array';
 import { setOwner, getOwner } from '@ember/application';
 import { assign } from '@ember/polyfills';
 import { run } from '@ember/runloop';
-import RSVP, { Promise, resolve } from 'rsvp';
+import RSVP, { Promise } from 'rsvp';
 import Ember from 'ember';
 import { DEBUG } from '@glimmer/env';
 import { assert, inspect } from '@ember/debug';
-import { deprecate } from '@ember/application/deprecations';
-import Model from './model';
 import RootState from './states';
 import Snapshot from '../snapshot';
-import OrderedSet from '../ordered-set';
 import ManyArray from '../many-array';
 import { PromiseBelongsTo, PromiseManyArray } from '../promise-proxies';
 import Store from '../ds-model-store';
-import { errorsHashToArray, errorsArrayToHash } from '../errors-utils';
+import { errorsHashToArray } from '../errors-utils';
 
 import { RecordReference, BelongsToReference, HasManyReference } from '../references';
 import { default as recordDataFor, relationshipStateFor } from '../record-data-for';
-import RecordData from '../../ts-interfaces/record-data';
+import RecordDataRecordWrapper from '../../ts-interfaces/record-data-record-wrapper';
 import { JsonApiResource, JsonApiValidationError } from '../../ts-interfaces/record-data-json-api';
 import { Record } from '../../ts-interfaces/record';
 import { ConfidentDict } from '../../ts-interfaces/utils';
@@ -101,7 +98,7 @@ export default class InternalModel {
   _id: string | null;
   modelName: string;
   clientId: string;
-  __recordData: RecordData | null;
+  __recordData: RecordDataRecordWrapper | null;
   _isDestroyed: boolean;
   isError: boolean;
   _pendingRecordArrayManagerFlush: boolean;
@@ -200,7 +197,7 @@ export default class InternalModel {
     return this._recordReference;
   }
 
-  get _recordData(): RecordData {
+  get _recordData(): RecordDataRecordWrapper {
     if (this.__recordData === null) {
       let recordData = this.store._createRecordData(this.identifier);
       this._recordData = recordData;
@@ -215,7 +212,7 @@ export default class InternalModel {
 
   get _recordArrays() {
     if (this.__recordArrays === null) {
-      this.__recordArrays = new OrderedSet();
+      this.__recordArrays = new Set();
     }
     return this.__recordArrays;
   }

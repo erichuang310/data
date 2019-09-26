@@ -1,29 +1,28 @@
+/**
+  @module @ember-data/record-data
+*/
 import { DEBUG } from '@glimmer/env';
 import { assign } from '@ember/polyfills';
 import { isEqual } from '@ember/utils';
 import { assert, warn, inspect } from '@ember/debug';
 import { run } from '@ember/runloop';
-import Relationships from '../relationships/state/create';
-import coerceId from '../coerce-id';
-import BelongsToRelationship from '../relationships/state/belongs-to';
-import ManyRelationship from '../relationships/state/has-many';
-import Relationship from '../relationships/state/relationship';
-import RecordData, { ChangedAttributesHash } from '../../ts-interfaces/record-data';
+import Relationships from './relationships/state/create';
+import coerceId from './coerce-id';
+import BelongsToRelationship from './relationships/state/belongs-to';
+import ManyRelationship from './relationships/state/has-many';
+import Relationship from './relationships/state/relationship';
+import RecordData, { ChangedAttributesHash } from './ts-interfaces/record-data';
 import {
   JsonApiResource,
   JsonApiBelongsToRelationship,
   JsonApiHasManyRelationship,
   JsonApiValidationError,
   AttributesHash,
-} from '../../ts-interfaces/record-data-json-api';
-import { RelationshipRecordData } from '../../ts-interfaces/relationship-record-data';
-import { RecordDataStoreWrapper } from '../../ts-interfaces/record-data-store-wrapper';
+} from './ts-interfaces/record-data-json-api';
+import { RelationshipRecordData } from './ts-interfaces/relationship-record-data';
+import { RecordDataStoreWrapper } from './ts-interfaces/record-data-store-wrapper';
 import { IDENTIFIERS, RECORD_DATA_ERRORS, RECORD_DATA_STATE } from '@ember-data/canary-features';
-import { RecordIdentifier } from '../../ts-interfaces/identifier';
-
-/**
-  @module @ember-data/store
-*/
+import { RecordIdentifier } from './ts-interfaces/identifier';
 
 let nextBfsId = 1;
 
@@ -98,7 +97,7 @@ export default class RecordDataDefault implements RelationshipRecordData {
       changedKeys = this._changedKeys(data.attributes);
     }
 
-    assign(this._data, data.attributes);
+    assign(this._data, data.attributes || {});
     if (this.__attributes) {
       // only do if we have attribute changes
       this._updateChangedAttributes();
@@ -347,7 +346,7 @@ export default class RecordDataDefault implements RelationshipRecordData {
     }
     let changedKeys = this._changedKeys(newCanonicalAttributes);
 
-    assign(this._data, this.__inFlightAttributes, newCanonicalAttributes);
+    assign(this._data, this.__inFlightAttributes, newCanonicalAttributes || {});
 
     this._inFlightAttributes = null;
 

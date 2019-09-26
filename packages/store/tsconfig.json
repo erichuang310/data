@@ -21,6 +21,8 @@
       "@ember-data/store/*": ["addon/*"],
       "@ember-data/adapter": ["../adapter/addon"],
       "@ember-data/adapter/*": ["../adapter/addon/*"],
+      "@ember-data/record-data": ["../record-data/addon"],
+      "@ember-data/record-data/*": ["../record-data/addon/*"],
       "@ember-data/store/test-support": ["addon-test-support"],
       "@ember-data/store/test-support/*": ["addon-test-support/*"],
       "ember-data": ["../-ember-data/addon"],
