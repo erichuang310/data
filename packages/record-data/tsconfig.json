@@ -18,9 +18,9 @@
       "dummy/tests/*": ["tests/*"],
       "dummy/*": ["tests/dummy/app/*", "app/*"],
       "@ember-data/canary-features": ["../canary-features/addon"],
+      "@ember-data/canary-features/*": ["../canary-features/addon/*"],
       "@ember-data/store": ["../store/addon"],
       "@ember-data/store/*": ["../store/addon/*"],
-      "@ember-data/canary-features/*": ["../canary-features/addon/*"],
       "*": ["types/*"]
     }
   },

@@ -70,14 +70,28 @@ export interface NewResourceIdentifierObject {
 
 export type ResourceIdentifierObject = ExistingResourceIdentifierObject | NewResourceIdentifierObject;
 
+// TODO disallow NewResource, make narrowable
+export interface SingleResourceRelationship {
+  data?: ResourceIdentifierObject | null;
+  meta?: Dict<JSONValue>;
+  // TODO this is lossy
+  links?: Dict<JSONValue>;
+}
+
+export interface CollectionResourceRelationship {
+  data?: ResourceIdentifierObject[];
+  meta?: Dict<JSONValue>;
+  // TODO this is lossy
+  links?: Dict<JSONValue>;
+}
+
 /**
  * Contains the data for an existing resource in JSON:API format
  */
 export interface ExistingResourceObject extends ExistingResourceIdentifierObject {
   meta?: Dict<JSONValue>;
   attributes?: Dict<JSONValue>;
-  // these are lossy, need improved typing
-  relationships?: Dict<JSONValue>;
+  relationships?: Dict<SingleResourceDocument | CollectionResourceDocument>;
   links?: Dict<JSONValue>;
 }
 

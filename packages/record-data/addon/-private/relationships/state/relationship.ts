@@ -5,9 +5,10 @@ import { assert, warn } from '@ember/debug';
 import OrderedSet from '../../ordered-set';
 import _normalizeLink from '../../normalize-link';
 import { RelationshipRecordData } from '../../ts-interfaces/relationship-record-data';
-import { JsonApiRelationship } from '../../ts-interfaces/record-data-json-api';
-import { RelationshipSchema } from '../../ts-interfaces/record-data-schemas';
+import { JsonApiRelationship } from '@ember-data/store/-private/ts-interfaces/record-data-json-api';
+import { RelationshipSchema } from '@ember-data/store/-private/ts-interfaces/record-data-schemas';
 import { CUSTOM_MODEL_CLASS } from '@ember-data/canary-features';
+import RecordData from '../../record-data';
 
 /**
   @module @ember-data/store
@@ -201,7 +202,7 @@ export default class Relationship {
     return recordData._implicitRelationships !== undefined && recordData._implicitRelationships !== null;
   }
 
-  _hasSupportForRelationships(recordData: RelationshipRecordData): boolean {
+  _hasSupportForRelationships(recordData: RelationshipRecordData): recordData is RecordData {
     return recordData._relationships !== undefined && recordData._relationships !== null;
   }
 

@@ -17,7 +17,7 @@ import { errorsHashToArray } from '../errors-utils';
 
 import { RecordReference, BelongsToReference, HasManyReference } from '../references';
 import { default as recordDataFor, relationshipStateFor } from '../record-data-for';
-import RecordDataRecordWrapper from '../../ts-interfaces/record-data-record-wrapper';
+import RecordData from '../../ts-interfaces/record-data';
 import { JsonApiResource, JsonApiValidationError } from '../../ts-interfaces/record-data-json-api';
 import { Record } from '../../ts-interfaces/record';
 import { ConfidentDict } from '../../ts-interfaces/utils';
@@ -33,6 +33,7 @@ import { StableRecordIdentifier } from '../../ts-interfaces/identifier';
 import { internalModelFactoryFor, setRecordIdentifier } from '../store/internal-model-factory';
 import CoreStore from '../core-store';
 import coerceId from '../coerce-id';
+import { RecordData as DefaultRecordData } from '@ember-data/record-data/-private';
 
 /**
   @module @ember-data/store
@@ -98,7 +99,7 @@ export default class InternalModel {
   _id: string | null;
   modelName: string;
   clientId: string;
-  __recordData: RecordDataRecordWrapper | null;
+  __recordData: RecordData | null;
   _isDestroyed: boolean;
   isError: boolean;
   _pendingRecordArrayManagerFlush: boolean;
@@ -197,7 +198,7 @@ export default class InternalModel {
     return this._recordReference;
   }
 
-  get _recordData(): RecordDataRecordWrapper {
+  get _recordData(): RecordData {
     if (this.__recordData === null) {
       let recordData = this.store._createRecordData(this.identifier);
       this._recordData = recordData;
@@ -651,7 +652,7 @@ export default class InternalModel {
   }
 
   getBelongsTo(key, options) {
-    let resource = this._recordData.getBelongsTo(key);
+    let resource = (this._recordData as DefaultRecordData).getBelongsTo(key);
     let identifier =
       resource && resource.data ? identifierCacheFor(this.store).getOrCreateRecordIdentifier(resource.data) : null;
     let relationshipMeta = this.store._relationshipMetaFor(this.modelName, null, key);
@@ -704,7 +705,7 @@ export default class InternalModel {
   // TODO Igor consider getting rid of initial state
   getManyArray(key, isAsync = false) {
     let relationshipMeta = this.store._relationshipMetaFor(this.modelName, null, key);
-    let jsonApi = this._recordData.getHasMany(key);
+    let jsonApi = (this._recordData as DefaultRecordData).getHasMany(key);
     let manyArray = this._manyArrayCache[key];
 
     assert(
@@ -764,7 +765,7 @@ export default class InternalModel {
   }
 
   getHasMany(key, options) {
-    let jsonApi = this._recordData.getHasMany(key);
+    let jsonApi = (this._recordData as DefaultRecordData).getHasMany(key);
     let relationshipMeta = this.store._relationshipMetaFor(this.modelName, null, key);
     let async = relationshipMeta.options.async;
     let isAsync = typeof async === 'undefined' ? true : async;
@@ -819,7 +820,7 @@ export default class InternalModel {
       return loadingPromise;
     }
 
-    let jsonApi = this._recordData.getHasMany(key);
+    let jsonApi = (this._recordData as DefaultRecordData).getHasMany(key);
     // TODO move this to a public api
     if (jsonApi._relationship) {
       jsonApi._relationship.setHasFailedLoadAttempt(false);
@@ -842,7 +843,7 @@ export default class InternalModel {
       return loadingPromise;
     }
 
-    let resource = this._recordData.getBelongsTo(key);
+    let resource = (this._recordData as DefaultRecordData).getBelongsTo(key);
     // TODO move this to a public api
     if (resource._relationship) {
       resource._relationship.setHasFailedLoadAttempt(false);
