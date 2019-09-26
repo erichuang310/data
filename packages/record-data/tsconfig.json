@@ -24,6 +24,14 @@
       "*": ["types/*"]
     }
   },
-  "include": ["app/**/*", "addon/**/*", "tests/**/*", "types/**/*", "test-support/**/*", "addon-test-support/**/*"],
+  "include": [
+    "app/**/*",
+    "addon/**/*",
+    "tests/**/*",
+    "types/**/*",
+    "test-support/**/*",
+    "addon-test-support/**/*",
+    "../-ember-data/app/initializers/default-record-data.js"
+  ],
   "exclude": ["node_modules"]
 }

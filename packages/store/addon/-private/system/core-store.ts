@@ -3072,16 +3072,7 @@ abstract class CoreStore extends Service {
     clientId: string,
     storeWrapper: RecordDataStoreWrapper
   ): RecordData {
-    if (IDENTIFIERS) {
-      let identifier = identifierCacheFor(this).getOrCreateRecordIdentifier({
-        type: modelName,
-        id,
-        lid: clientId,
-      });
-      return new RecordDataDefault(identifier, storeWrapper);
-    } else {
-      return new RecordDataDefault(modelName, id, clientId, storeWrapper);
-    }
+    throw new Error(`Expected store.createRecordDataFor to be implemented but it wasn't`);
   }
 
   /**
