@@ -1612,7 +1612,7 @@ export function assertRecordsPassedToHasMany(records) {
   assert(
     `All elements of a hasMany relationship must be instances of Model, you passed ${inspect(records)}`,
     (function() {
-      return A(records).every(record => record.hasOwnProperty('_internalModel') === true);
+      return A(records).every(record => Object.prototype.hasOwnProperty.call(record, '_internalModel') === true);
     })()
   );
 }
