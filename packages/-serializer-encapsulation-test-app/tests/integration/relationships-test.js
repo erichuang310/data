@@ -2,7 +2,7 @@ import { module, test } from 'qunit';
 import { setupTest } from 'ember-qunit';
 import { resolve } from 'rsvp';
 import JSONAPIAdapter from '@ember-data/adapter/json-api';
-import Store from '@ember-data/store';
+import Store from 'serializer-encapsulation-test-app/services/store';
 import Model, { attr, hasMany, belongsTo } from '@ember-data/model';
 import EmberObject from '@ember/object';
 
@@ -26,6 +26,7 @@ module('integration/relationships - running requests for async relatonships with
   setupTest(hooks);
 
   hooks.beforeEach(function() {
+    this.owner.unregister('service:store');
     this.owner.register('service:store', Store);
     this.owner.register('model:post', Post);
     this.owner.register('model:comment', Comment);

@@ -10,7 +10,6 @@ module.exports = Object.assign({}, addonBaseConfig, {
     return [
       '@ember-data/canary-features',
       'ember-inflector',
-      '@ember-data/record-data/-private',
       '@ember-data/store/-debug',
       'require',
     ];

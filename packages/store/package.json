@@ -22,7 +22,6 @@
   "dependencies": {
     "@ember-data/-build-infra": "3.15.0-alpha.0",
     "@ember-data/canary-features": "3.15.0-alpha.0",
-    "@ember-data/record-data": "3.15.0-alpha.0",
     "ember-cli-babel": "^7.11.1",
     "ember-cli-path-utils": "^1.0.0",
     "ember-cli-typescript": "^3.0.0",

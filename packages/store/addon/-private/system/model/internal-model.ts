@@ -33,7 +33,18 @@ import { internalModelFactoryFor, setRecordIdentifier } from '../store/internal-
 import CoreStore from '../core-store';
 import coerceId from '../coerce-id';
 import recordDataFor from '../record-data-for';
-import { RecordData as DefaultRecordData, relationshipStateFor } from '@ember-data/record-data/-private';
+
+type DefaultRecordData = import('@ember-data/record-data/-private').RecordData;
+
+function relationshipsFor(instance) {
+  let recordData = recordDataFor(instance) || instance;
+
+  return recordData._relationships;
+}
+
+function relationshipStateFor(instance, propertyName) {
+  return relationshipsFor(instance).get(propertyName);
+}
 
 /**
   @module @ember-data/store

@@ -5,10 +5,6 @@ import { RelationshipSchema } from '@ember-data/store/-private/ts-interfaces/rec
 import { RecordDataStoreWrapper, upgradeForInternal } from '@ember-data/store/-private';
 import CoreStore from '@ember-data/store/-private/system/core-store';
 
-/**
-  @module @ember-data/store
-*/
-
 function createRelationshipFor(
   relationshipMeta: RelationshipSchema,
   store: CoreStore,

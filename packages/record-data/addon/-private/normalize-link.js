@@ -1,7 +1,3 @@
-/**
-  @module @ember-data/store
-*/
-
 /*
   This method normalizes a link to an "links object". If the passed link is
   already an object it's returned without any modifications.

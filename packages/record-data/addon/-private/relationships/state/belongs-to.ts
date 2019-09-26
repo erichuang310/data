@@ -9,10 +9,6 @@ import {
 import { RelationshipSchema } from '@ember-data/store/-private/ts-interfaces/record-data-schemas';
 import { ExistingResourceIdentifierObject } from '@ember-data/store/-private/ts-interfaces/ember-data-json-api';
 
-/**
-  @module @ember-data/store
-*/
-
 export default class BelongsToRelationship extends Relationship {
   inverseRecordData: RelationshipRecordData | null;
   canonicalState: RelationshipRecordData | null;

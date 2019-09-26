@@ -39,7 +39,6 @@ import InternalModel, {
   extractRecordDataFromRecord,
   extractRecordDatasFromRecords,
 } from './model/internal-model';
-import { Relationship } from '@ember-data/record-data/-private';
 import edBackburner from './backburner';
 import {
   IDENTIFIERS,
@@ -77,6 +76,9 @@ import { Dict } from '../ts-interfaces/utils';
 
 import constructResource from '../utils/construct-resource';
 import { errorsArrayToHash } from './errors-utils';
+
+type Relationship = import('@ember-data/record-data/-private').Relationship;
+
 const emberRun = emberRunLoop.backburner;
 
 const { ENV } = Ember;

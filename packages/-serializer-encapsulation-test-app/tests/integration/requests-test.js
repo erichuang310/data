@@ -1,5 +1,5 @@
 import Model, { attr } from '@ember-data/model';
-import Store from '@ember-data/store';
+import Store from 'serializer-encapsulation-test-app/services/store';
 import JSONAPIAdapter from '@ember-data/adapter/json-api';
 import EmberObject from '@ember/object';
 import { setupTest } from 'ember-qunit';
@@ -10,6 +10,7 @@ module('integration/requests - running requests with minimum serializer', functi
   setupTest(hooks);
 
   hooks.beforeEach(function(assert) {
+    this.owner.unregister('service:store');
     this.owner.register('service:store', Store);
     this.owner.register(
       'model:person',
