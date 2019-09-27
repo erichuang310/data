@@ -356,10 +356,13 @@ function removeFromAdapterPopulatedRecordArrays(internalModels) {
 }
 
 function removeFromAll(internalModel) {
-  internalModel._recordArrays.forEach(function(recordArray) {
-    recordArray._removeInternalModels([internalModel]);
-  });
-  internalModel._recordArrays.clear();
+  const recordArrays = internalModel._recordArrays;
+
+  for (let i = 0; i < recordArrays.length; i++) {
+    recordArrays[i]._removeInternalModels([internalModel]);
+  }
+
+  recordArrays.clear();
 }
 
 export function associateWithRecordArray(internalModels, array) {
