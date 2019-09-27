@@ -9,7 +9,9 @@
   @param {String} link
   @return {Object|null}
 */
-export default function _normalizeLink(link) {
+type LinkObject = { href: string };
+
+export default function _normalizeLink(link: string | LinkObject): LinkObject | null {
   switch (typeof link) {
     case 'object':
       return link;
