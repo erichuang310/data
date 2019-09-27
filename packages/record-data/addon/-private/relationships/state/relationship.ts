@@ -448,10 +448,12 @@ export default class Relationship {
     if (!this._hasSupportForRelationships(recordData)) {
       return;
     }
-    let inverseRelationship = relationshipStateFor(recordData, this.inverseKey);
-    //Need to check for existence, as the record might unloading at the moment
-    if (inverseRelationship) {
-      inverseRelationship.removeRecordDataFromOwn(this.recordData);
+    if (this.inverseKey) {
+      let inverseRelationship = relationshipStateFor(recordData, this.inverseKey);
+      //Need to check for existence, as the record might unloading at the moment
+      if (inverseRelationship) {
+        inverseRelationship.removeRecordDataFromOwn(this.recordData);
+      }
     }
   }
 
@@ -463,10 +465,12 @@ export default class Relationship {
     if (!this._hasSupportForRelationships(recordData)) {
       return;
     }
-    let inverseRelationship = relationshipStateFor(recordData, this.inverseKey);
-    //Need to check for existence, as the record might unloading at the moment
-    if (inverseRelationship) {
-      inverseRelationship.removeCanonicalRecordDataFromOwn(this.recordData);
+    if (this.inverseKey) {
+      let inverseRelationship = relationshipStateFor(recordData, this.inverseKey);
+      //Need to check for existence, as the record might unloading at the moment
+      if (inverseRelationship) {
+        inverseRelationship.removeCanonicalRecordDataFromOwn(this.recordData);
+      }
     }
   }
 
@@ -499,8 +503,10 @@ export default class Relationship {
         const id = guidFor(inverseRecordData);
 
         if (this._hasSupportForRelationships(inverseRecordData) && seen[id] === undefined) {
-          const relationship = relationshipStateFor(inverseRecordData, this.inverseKey);
-          relationship.removeCompletelyFromOwn(recordData);
+          if (this.inverseKey) {
+            const relationship = relationshipStateFor(inverseRecordData, this.inverseKey);
+            relationship.removeCompletelyFromOwn(recordData);
+          }
           seen[id] = true;
         }
       };

@@ -9,9 +9,10 @@
   @param {String} link
   @return {Object|null}
 */
-type LinkObject = { href: string };
+type Link = import('@ember-data/store/-private/ts-interfaces/ember-data-json-api').Link;
+type LinkObject = import('@ember-data/store/-private/ts-interfaces/ember-data-json-api').LinkObject;
 
-export default function _normalizeLink(link: string | LinkObject): LinkObject | null {
+export default function _normalizeLink(link: Link): LinkObject | null {
   switch (typeof link) {
     case 'object':
       return link;
