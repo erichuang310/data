@@ -20,7 +20,6 @@ module(
     setupTest(hooks);
 
     hooks.beforeEach(function() {
-      this.owner.unregister('service:store');
       this.owner.register('service:store', Store);
       this.owner.register('model:person', Person);
       this.owner.register(

@@ -99,7 +99,7 @@ export default class RecordDataDefault implements RelationshipRecordData {
       changedKeys = this._changedKeys(data.attributes);
     }
 
-    assign(this._data, data.attributes || {});
+    assign(this._data, data.attributes);
     if (this.__attributes) {
       // only do if we have attribute changes
       this._updateChangedAttributes();
@@ -348,7 +348,7 @@ export default class RecordDataDefault implements RelationshipRecordData {
     }
     let changedKeys = this._changedKeys(newCanonicalAttributes);
 
-    assign(this._data, this.__inFlightAttributes, newCanonicalAttributes || {});
+    assign(this._data, this.__inFlightAttributes, newCanonicalAttributes);
 
     this._inFlightAttributes = null;
 

@@ -31,7 +31,6 @@ module('integration/create-record - running createRecord with minimum serializer
   setupTest(hooks);
 
   hooks.beforeEach(function(assert) {
-    this.owner.unregister('service:store');
     this.owner.register('service:store', Store);
     this.owner.register('model:person', Person);
   });

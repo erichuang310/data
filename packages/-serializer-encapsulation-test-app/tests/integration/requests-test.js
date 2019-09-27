@@ -10,7 +10,6 @@ module('integration/requests - running requests with minimum serializer', functi
   setupTest(hooks);
 
   hooks.beforeEach(function(assert) {
-    this.owner.unregister('service:store');
     this.owner.register('service:store', Store);
     this.owner.register(
       'model:person',
