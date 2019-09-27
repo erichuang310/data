@@ -101,7 +101,7 @@ export interface CollectionResourceRelationship {
 export interface ExistingResourceObject extends ExistingResourceIdentifierObject {
   meta?: Dict<JSONValue>;
   attributes?: Dict<JSONValue>;
-  relationships?: Dict<SingleResourceDocument | CollectionResourceDocument>;
+  relationships?: Dict<SingleResourceRelationship | CollectionResourceRelationship>;
   links?: Links;
 }
 

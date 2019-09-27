@@ -6,6 +6,7 @@ vendor/
 /packages/-ember-data/docs/
 dist
 tmp
+.git/
 
 # dependencies
 bower_components
