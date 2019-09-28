@@ -358,9 +358,9 @@ function removeFromAdapterPopulatedRecordArrays(internalModels) {
 function removeFromAll(internalModel) {
   const recordArrays = internalModel._recordArrays;
 
-  for (let i = 0; i < recordArrays.length; i++) {
-    recordArrays[i]._removeInternalModels([internalModel]);
-  }
+  recordArrays.forEach(function(recordArray) {
+    recordArray._removeInternalModels([internalModel]);
+  });
 
   recordArrays.clear();
 }
