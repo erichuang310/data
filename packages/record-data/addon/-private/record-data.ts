@@ -366,7 +366,7 @@ export default class RecordDataDefault implements RelationshipRecordData {
   }
 
   // get ResourceIdentifiers for "current state"
-  getHasMany(key): DefaultCollectionResourceRelationship {
+  getHasMany(key: string): DefaultCollectionResourceRelationship {
     return (this._relationships.get(key) as ManyRelationship).getData();
   }
 
